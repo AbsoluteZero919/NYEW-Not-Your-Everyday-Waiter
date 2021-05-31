@@ -1,0 +1,82 @@
+{
+  "intents":[
+    {"tag": "order",
+    "patterns": ["ready to order", "i am ready to order", "can i order", "i want to place my order", "take my order", "would like to order"],
+    "responses": ["I see you are ready to order"]
+    },
+    {"tag": "menu",
+    "patterns": [ "what appetizers do you have?", "what starters do you have?", "appetizers menu", "starters menu",
+                  "adult appetizers", "show me the list of burgers", "what burgers do you have?", "show me a list of vegetarian burgers",
+                  "show me a list of non-vegetarian burgers?", "burgers", "types of burgers", "burger menu",
+                  "show me the pasta choices", "what pasta varieties do you have?", "show me a list of vegetarian pasta",
+                  "show me a list of non-vegetarian pasta?", "pasta", "types of pasta", "pasta menu",
+                  "what beverages do you have?", "what milk shakes do you have?", "show me the different fruit juices available",
+                  "show me a list of juices available", "do you have milkshake", "what desserts do you have?",
+                  "what types of desserts do you offer?", "show me the different cakes available","what flavours of ice cream are available?",
+                  "desserts", "ice cream", "sweets", "do you have icecream", "show me list of sandwiches", "what rolls do you have?",
+                  "show me a list of vegetarian sandwich", "show me a list of non-vegetarian sandwich?", "rolls and sandwich",
+                  "types of rolls", "sandwich menu", "what condiments do you have", "dips and sauces", "what sauces do you have", "sauces list",
+                  "dips list", "sauce menu"
+    ],
+    "responses": [""]
+    },
+    {"tag": "remove",
+    "patterns": ["remove from my order", "i want to remove from my order", "can i delete from my order", "delete my order", "remove", "delete"],
+    "responses": [""]
+    },
+    {"tag": "affirmative",
+    "patterns": ["yes", "yup", "absolutely", "okay", "yes please", "sure", "yeah", "yeah okay", "affirmative", "definitely", "yeah add it",
+                "yes please", "no doubt about it", "go ahead", "i would like that"],
+    "responses": [""]
+    },
+    {"tag": "negative",
+    "patterns": ["no", "nope", "i do not want that", "no i don't", "i changed my mind", "do not add", "don't add", "don't want",
+                "did not ask for that", "did not say that", "don't think i said that"],
+    "responses": [""]
+    },
+    {"tag": "quit",
+    "patterns": ["that would be all", "that is all", "i am done", "quit", "stop", "terminate", "i am done ordering",
+                "i do not want to order anymore", "that is enough", "i won't consider", "i don't care", "i don't want to order"],
+    "responses": [""]
+    },
+    {"tag": "showorder",
+    "patterns": ["show me my order", "show order list", "what items have i ordered", "can i see my order so far", "what are the dishes in my order",
+                "can i see my orders"
+    ],
+    "responses": [""]
+    },
+    {"tag": "allergyalert",
+    "patterns": ["show me food options that do not contain peanuts", "peanut free food", "no nut food", "nut free dishes", "nut allergy", "peanut allergy food", "allergic to peanuts and nuts"],
+    "responses": ["list of food with no nuts and peanuts"]
+    },
+    {"tag": "requests",
+    "patterns": ["can i have this serving divided between two plates?", "can we get an extra glass?", "can you add a bottle of coke to the order?", "add a bottle of water to this request", "can i hae extra plate"],
+    "responses": ["yes sure"]
+    },
+    {"tag": "healthrequests",
+    "patterns": ["could you not add onions to this particular order?", "could you note my seafood allergy for the next time i order?"],
+    "responses": ["yes sure"]
+    },
+    {"tag": "billing",
+    "patterns": ["do you accept card payment", "do you accept phone pay google pay and other such payment methods", "i would like to pay in cash", "do you take cash?", "do you take cards", "do you accept cash", "do you accept U P I payment"],
+    "responses": ["yes we accept all credit/debit cards, cash and U P I payment methods"]
+    },
+    {"tag": "greeting",
+     "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Hey", "good morning", "good afternoon", "good evening"],
+     "responses": ["Hello, thanks for visiting", "Good to see you again", "Hi there, how can I help?"],
+     "context_set": ""
+    },
+    {"tag": "goodbye",
+     "patterns": ["Bye", "See you later", "Goodbye"],
+     "responses": ["See you later, thanks for visiting", "Have a nice day", "Bye! Come back again soon."]
+    },
+    {"tag": "thanks",
+     "patterns": ["Thanks", "Thank you", "That's helpful", "cool", "That is fantastic", "The food is amaizing"],
+     "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {"tag": "hours",
+     "patterns": ["What hours are you open?", "What are your hours?", "When are you open?"],
+     "responses": ["We're open every day 9am-9pm", "Our hours are 9am-9pm every day"]
+    }
+  ]
+}
