@@ -1,7 +1,7 @@
 from utilities.model_handler import data, map_input
 import random
 from utilities.audio_functions import get_audio, speak
-from utilities.ordering_functions import place_order, show_menu, show_order, remove_order
+from utilities.ordering_functions import place_order, show_menu, show_order, remove_order, append_recommend_menu, order
 
 '''
     Nyew: Not Your Everyday Waiter
@@ -36,6 +36,7 @@ def chat():
 
         # Quitting the assistant
         if inp.lower() == "checkout" or inp.lower() == "check out":
+            append_recommend_menu('datasets/Recommendations_menu.csv', order)
             speak("See you later then !")
             exit()
 
