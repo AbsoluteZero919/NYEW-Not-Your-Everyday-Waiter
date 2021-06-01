@@ -3,6 +3,7 @@ from utilities.keyword_extraction import keyword_extract, match_menu
 from utilities.association_rule import apriori_algorithm
 from utilities.audio_functions import get_audio, speak
 import pandas as pd
+from csv import writer
 
 order = []
 dataset = pd.read_csv('datasets/nyew_menu.csv')
@@ -32,9 +33,16 @@ def place_order():
         r = map_input(inp_qu)
         if r.res[r.res_ind] > 0.5:
             if r.t == 'affirmative':
-                order.append(item[0])
-                speak("Added " + item[0])
-                recommend_item(item[0])
+                # There is a limit of 8 items because that's the maximum number of columns in recommendations_menu.csv
+                # the dataframe used in the apriori algorithm takes only 8 columns as input.
+                if len(order) < 8:
+                    order.append(item[0])
+                    speak("Added " + item[0])
+                    recommend_item(item[0])
+                else:
+                    speak("Sorry! Can't order more than eight items")
+                    show_order()
+                    break
         # if inp_qu.lower() == "yes":
         #     order.append(item[0])
         #     speak("Added " + item[0])
@@ -103,3 +111,13 @@ def recommend_item(order_item):
         # speak("People who ordered " + order_item + " also ordered " + listToString(recommend_list))
         speak(listToString(recommend_list) + " is popular choice with " + order_item)
         speak("Please, Consider ordering it")
+
+
+# appends each order to the recommendation_menu
+def append_recommend_menu(file_name, list_of_elem):
+    # Open file in append mode
+    with open(file_name, 'a+', newline='') as write_obj:
+        # Create a writer object from csv module
+        csv_writer = writer(write_obj)
+        # Add contents of list as last row in the csv file
+        csv_writer.writerow(list_of_elem)
