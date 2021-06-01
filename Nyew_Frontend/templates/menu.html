@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href=".\menu.css">
+        <script src="menu.js"></script> 
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- Boot nav bar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img src=".\images\logo.png" width="100" height="40" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+        </nav>
+        <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+            <form id='msg'>
+                <div class="speech">
+                    <input type="text" name="user" id="user-transcript" placeholder="Speak" />
+                    <img onclick="startDictation()" src=".\images\microphone.png" />
+                    <input type="text" name="nyew" id="nyew-transcript" placeholder="Answer" />
+                </div>
+            </form>
+        </nav>
+        <!-- Boot nav bar -->
+          <!-- Page Title -->
+        <div class="page-title bg-light">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-8 offset-lg-4">
+                      <h1 class="mb-0">Menu List</h1>
+                      <h4 class="text-muted mb-0">We have everything from starters to desserts</h4>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Page Content -->
+      <div class="page-content">
+          <div class="container">
+              <div class="row no-gutters">
+                  <div class="col-md-3">
+                      <!-- Menu Navigation -->
+                      <nav id="menu-navigation" class="stick-to-content" data-local-scroll="" style="position: fixed; top: 0px; width: 277.5px;">
+                          <ul class="nav nav-bar bg-dark dark">
+                              <li><a href="#Burgers">Burgers</a></li>
+                              <li><a href="#Pasta">Pasta</a></li>
+                              <li><a href="#Pizza">Pizza</a></li>
+                              <li><a href="#Sushi">Sushi</a></li>
+                              <li><a href="#Desserts">Desserts</a></li>
+                              <li><a href="#Drinks">Drinks</a></li>
+                          </ul>
+                      </nav>
+                  </div>
+                  <div class="col-md-9">
+                      <!-- Menu Category / Burgers -->
+                      <div id="Burgers" class="menu-category">
+                          <div class="menu-category-title">
+                              <div class="bg-image" style="background-image: url(&quot;http://assets.suelo.pl/soup/img/photos/menu-title-burgers.jpg&quot;);"><img src="http://assets.suelo.pl/soup/img/photos/menu-title-burgers.jpg" alt="" style="display: none;"></div>    
+                              <h2 class="title">Burgers</h2>
+                          </div>
+                          <div class="menu-category-content">
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Veg Burger</h6>
+                                          <span class="text-muted text-sm">potato, cheese, lettuce, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> ₹<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" id="b1" onclick="addItem('veg burger',9),speakItem('veg burger')"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Broccoli</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> ₹<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" id="b2" onclick="addItem('broccoli',9),speakItem('broccoli')"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Chicken Burger</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span>  ₹<span data-product-base-price="" id="">14.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" id="b3" onclick="addItem('chicken burger',14)"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Creste di Galli</h6>
+                                          <span class="text-muted text-sm">Pasta, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> ₹<span data-product-base-price="">13.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" id="b4" onclick="addItem()"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Menu Category / Pasta -->
+                      <div id="Pasta" class="menu-category">
+                          <div class="menu-category-title">
+                              <div class="bg-image" style="background-image: url(&quot;http://assets.suelo.pl/soup/img/photos/menu-title-pasta.jpg&quot;);"><img src="http://assets.suelo.pl/soup/img/photos/menu-title-pasta.jpg" alt="" style="display: none;"></div>
+                              <h2 class="title">Pasta</h2>
+                          </div>
+                          <div class="menu-category-content">
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Beef Burger</h6>
+                                          <span class="text-muted text-sm">Beef, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="1"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Broccoli</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="2"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Chicken Burger</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">14.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="3"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Creste di Galli</h6>
+                                          <span class="text-muted text-sm">Pasta, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">13.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="4"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Menu Category / Pizza -->
+                      <div id="Pizza" class="menu-category">
+                          <div class="menu-category-title">
+                              <div class="bg-image" style="background-image: url(&quot;http://assets.suelo.pl/soup/img/photos/menu-title-pizza.jpg&quot;);"><img src="http://assets.suelo.pl/soup/img/photos/menu-title-pizza.jpg" alt="" style="display: none;"></div>
+                              <h2 class="title">Pizza</h2>
+                          </div>
+                          <div class="menu-category-content">
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Beef Burger</h6>
+                                          <span class="text-muted text-sm">Beef, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="1"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Broccoli</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="2"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Chicken Burger</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">14.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="3"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Creste di Galli</h6>
+                                          <span class="text-muted text-sm">Pasta, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">13.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="4"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Menu Category / Sushi -->
+                      <div id="Sushi" class="menu-category">
+                          <div class="menu-category-title">
+                              <div class="bg-image" style="background-image: url(&quot;http://assets.suelo.pl/soup/img/photos/menu-title-sushi.jpg&quot;);"><img src="http://assets.suelo.pl/soup/img/photos/menu-title-sushi.jpg" alt="" style="display: none;"></div>
+                              <h2 class="title">Sushi</h2>
+                          </div>
+                          <div class="menu-category-content">
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Beef Burger</h6>
+                                          <span class="text-muted text-sm">Beef, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="1"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Broccoli</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="2"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Chicken Burger</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">14.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="3"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Creste di Galli</h6>
+                                          <span class="text-muted text-sm">Pasta, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">13.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="4"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Menu Category / Desserts -->
+                      <div id="Desserts" class="menu-category">
+                          <div class="menu-category-title">
+                              <div class="bg-image" style="background-image: url(&quot;http://assets.suelo.pl/soup/img/photos/menu-title-desserts.jpg&quot;);"><img src="http://assets.suelo.pl/soup/img/photos/menu-title-desserts.jpg" alt="" style="display: none;"></div>
+                              <h2 class="title">Desserts</h2>
+                          </div>
+                          <div class="menu-category-content">
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Beef Burger</h6>
+                                          <span class="text-muted text-sm">Beef, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="1"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Broccoli</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="2"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Chicken Burger</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">14.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="3"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Creste di Galli</h6>
+                                          <span class="text-muted text-sm">Pasta, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">13.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="4"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- Menu Category / Drinks -->
+                      <div id="Drinks" class="menu-category">
+                          <div class="menu-category-title">
+                              <div class="bg-image" style="background-image: url(&quot;http://assets.suelo.pl/soup/img/photos/menu-title-drinks.jpg&quot;);"><img src="http://assets.suelo.pl/soup/img/photos/menu-title-drinks.jpg" alt="" style="display: none;"></div>
+                              <h2 class="title">Drinks</h2>
+                          </div>
+                          <div class="menu-category-content">
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Beef Burger</h6>
+                                          <span class="text-muted text-sm">Beef, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="1"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Broccoli</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">9.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="2"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Chicken Burger</h6>
+                                          <span class="text-muted text-sm">Chicken, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">14.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="3"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Menu Item -->
+                              <div class="menu-item menu-list-item">
+                                  <div class="row align-items-center">
+                                      <div class="col-sm-6 mb-2 mb-sm-0">
+                                          <h6 class="mb-0">Creste di Galli</h6>
+                                          <span class="text-muted text-sm">Pasta, cheese, potato, onion, fries</span>
+                                      </div>
+                                      <div class="col-sm-6 text-sm-right">
+                                          <span class="text-md mr-4"><span class="text-muted">from</span> $<span data-product-base-price="">13.00</span></span>
+                                          <button class="btn btn-outline-secondary btn-sm" data-action="open-cart-modal" data-id="4"><span>Add to cart</span></button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </body>    
