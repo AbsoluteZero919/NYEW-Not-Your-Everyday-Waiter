@@ -1,8 +1,7 @@
-from virtual_waiter2.utilities.model_handler import map_input
-from virtual_waiter2.utilities.keyword_extraction import keyword_extract, match_menu
-from virtual_waiter2.utilities.association_rule import apriori_algorithm
-from virtual_waiter2.utilities.convert_list_to_string import listToString
-from virtual_waiter2.utilities.audio_functions import get_audio, speak
+from utilities.model_handler import map_input
+from utilities.keyword_extraction import keyword_extract, match_menu
+from utilities.association_rule import apriori_algorithm
+from utilities.audio_functions import get_audio, speak
 import pandas as pd
 
 order = []
@@ -10,6 +9,9 @@ dataset = pd.read_csv('datasets/nyew_menu.csv')
 df = dataset.iloc[:, :]
 menu_items = df['menu_items']
 
+# Converting list items to string for suggestion
+def listToString(lst):
+    return str(lst).replace("'", '').replace("[", '').replace("]",'')
 
 def place_order():
     speak("Say I want to order, followed by the item, say quit when done!")

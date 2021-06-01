@@ -100,9 +100,9 @@ except:
     net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
     net = tflearn.regression(net)
 
-    model = tflearn.DNN(net)
+    model = tflearn.DNN(net, tensorboard_dir='tflearn_logs', tensorboard_verbose=0)
 
-    model.fit(training, output, n_epoch=400, batch_size=8, show_metric=True)
+    model.fit(training, output, n_epoch=400, batch_size=8, show_metric=True, snapshot_step=1, snapshot_epoch=True, run_id= 'Voice_Model_Run-1')
     model.save("builds/model.tflearn")
 
 # Tokenizing words from data items

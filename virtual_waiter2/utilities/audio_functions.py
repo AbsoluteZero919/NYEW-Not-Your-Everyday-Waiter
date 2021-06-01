@@ -7,7 +7,7 @@ from gtts import gTTS
 import os
 import playsound
 
-
+# Handling background noise
 def get_clean_audio():
     # Sampling frequency
     freq = 44100
@@ -60,7 +60,7 @@ def get_audio():
     said = ""
 
     try:
-        said = r.recognize_google(audio, language='en-US')
+        said = r.recognize_google(audio, language = 'en-IN')
         print(said)
     except Exception as e:
         print("Exception: " + str(e))
