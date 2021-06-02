@@ -116,8 +116,9 @@ def recommend_item(order_item):
 # appends each order to the recommendation_menu
 def append_recommend_menu(file_name, list_of_elem):
     # Open file in append mode
-    with open(file_name, 'a+', newline='') as write_obj:
-        # Create a writer object from csv module
-        csv_writer = writer(write_obj)
-        # Add contents of list as last row in the csv file
-        csv_writer.writerow(list_of_elem)
+    if list_of_elem:
+        with open(file_name, 'a+', newline='') as write_obj:
+            # Create a writer object from csv module
+            csv_writer = writer(write_obj)
+            # Add contents of list as last row in the csv file
+            csv_writer.writerow(list_of_elem)
