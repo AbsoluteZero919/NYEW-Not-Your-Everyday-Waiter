@@ -102,6 +102,7 @@ except:
 
     model = tflearn.DNN(net, tensorboard_dir='tflearn_logs', tensorboard_verbose=0)
 
+    # run_id attribute to be changed for each model training to get the learining graphs individually
     model.fit(training, output, n_epoch=400, batch_size=8, show_metric=True, snapshot_step=1, snapshot_epoch=True, run_id= 'Voice_Model_Run-1')
     model.save("builds/model.tflearn")
 

@@ -12,7 +12,7 @@ menu_items = df['menu_items']
 
 # Converting list items to string for suggestion
 def listToString(lst):
-    return str(lst).replace("'", '').replace("[", '').replace("]",'')
+    return ', '.join(lst)
 
 def place_order():
     speak("Say I want to order, followed by the item, say quit when done!")
@@ -52,9 +52,9 @@ def place_order():
                 show_order()
                 break
             elif r.t == 'negative':
-                speak("Sorry! Did you mean " + listToString(item[0:3]))
+                speak("Sorry! Did you mean " + listToString(item[0:3] + " ?"))
             else:
-                speak("ha ? didn't get that, please repeat your order !")
+                speak("huh ? didn't get that, please repeat your order !")
         else:
             speak("I could not catch that, please repeat your order !")
     return
