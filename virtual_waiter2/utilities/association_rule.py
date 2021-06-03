@@ -6,7 +6,7 @@ def apriori_algorithm(str_item):
     dataset = pd.read_csv('datasets/Recommendations_menu.csv', header=None)
     basket = []
     # Outer for loop to iterate through no. of rows, inner for loop to iterate through no. of cols
-    for i in range(0, 206):
+    for i in range(len(dataset.index)):
         basket.append([str(dataset.values[i, j]) for j in range(0, 8)])
 
     # min_support = mininum frequency / total no. of transactions
