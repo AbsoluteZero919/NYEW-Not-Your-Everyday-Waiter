@@ -54,7 +54,7 @@ def place_order():
             elif r.t == 'negative':
                 speak("Sorry! Did you mean " + listToString(item[0:3] + " ?"))
             else:
-                speak("huh ? didn't get that, please repeat your order !")
+                speak("Huh ? Didn't get that, please repeat your order !")
         else:
             speak("I could not catch that, please repeat your order !")
     return
@@ -90,9 +90,9 @@ def show_menu(str_inp):
     item = match_menu(keyword, df2)
     # get menu items from a specified sub menu
     a = df.loc[(df['sub_menu'] == item[0])]
-    speak(str(item[0]))
+    speak(str(item[0]), exit=True)
     for ind in a.index:
-        speak(str(df['menu_items'][ind]) + " costs " + str(df['prices'][ind]))
+        speak(str(df['menu_items'][ind]) + " costs " + str(df['prices'][ind]), exit=True)
 
 
 def recommend_item(order_item):
@@ -109,7 +109,7 @@ def recommend_item(order_item):
         return
     else:
         # speak("People who ordered " + order_item + " also ordered " + listToString(recommend_list))
-        speak(listToString(recommend_list) + " is popular choice with " + order_item)
+        speak(listToString(recommend_list) + " is popular choice with " + order_item, exit=True)
         speak("Please, Consider ordering it")
 
 
