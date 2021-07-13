@@ -149,3 +149,4 @@ cython_debug/
 
 #wav file
 *.wav
+*.mp3

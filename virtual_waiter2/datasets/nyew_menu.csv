@@ -1,46 +1,46 @@
-menu_items,sub_menu,prices
-French Fries,Starters menu,87.62
-Chicken Wings,Starters menu,109.7
-Chicken Nuggets,Starters menu,108.86
-Onion Rings,Starters menu,71.83
-Tomato Soup,Starters menu,114.05
-Nachos,Starters menu,103.29
-Veg Burger,Burgers menu,86.29
-Chicken Burger,Burgers menu,115.23
-Hamburger,Burgers menu,102.96
-Farmhouse Pizza,Pizzas menu,107.82
-Mozzarella Pizza,Pizzas menu,118.5
-Tomato basil Pizza,Pizzas menu,102.02
-Pepperoni Pizza,Pizzas menu,97.36
-Mac-n-Cheese,Pastas menu,95.28
-Arrabbiata Pasta,Pastas menu,95.4
-Spaghetti,Pastas menu,71.33
-Pesto Pasta,Pastas menu,74.13
-Veg Sandwich ,Sandwiches menu and Rolls menu,117.28
-Chicken Sandwich,Sandwiches menu and Rolls menu,92.41
-Grilled Cheese Sandwich,Sandwiches menu and Rolls menu,105.55
-Tacos,Sandwiches menu and Rolls menu,85.76
-Burritos,Sandwiches menu and Rolls menu,78.54
-Coke,Beverages menu,55.35
-Iced Tea,Beverages menu,51.77
-Green Tea,Beverages menu,64.42
-Coffee,Beverages menu,64.86
-Oreo Shake,Milkshakes menu,54.96
-Strawberry Milkshake,Milkshakes menu,63.62
-Chocolate Milkshake,Milkshakes menu,64.98
-Avocado Milkshake,Milkshakes menu,54.4
-Apple Juice,Fruit Juices menu,39.52
-Mango Juice,Fruit Juices menu,30.22
-Orange Juice,Fruit Juices menu,30.59
-Lemonade,Fruit Juices menu,41.73
-Chocolate Cupcake,Desserts menu,59.74
-Sprinkle Donuts,Desserts menu,50.47
-Red velvet Cupcake,Desserts menu,64.24
-Blueberry Cheesecake,Desserts menu,46.12
-Strawberry Ice cream,Desserts menu,54.97
-Guacamole,Dips and Sauces menu,20.84
-Tomato ketchup,Dips and Sauces menu,18.59
-Mustard,Dips and Sauces menu,16.2
-Barbecue sauce,Dips and Sauces menu,18.82
-Mayonnaise,Dips and Sauces menu,12.46
-Cheesy dip,Dips and Sauces menu,12.52
+menu_items,sub_menu,prices,time
+French Fries,Starters menu,87.62,15
+Chicken Wings,Starters menu,109.7,14
+Chicken Nuggets,Starters menu,108.86,11
+Onion Rings,Starters menu,71.83,14
+Tomato Soup,Starters menu,114.05,13
+Nachos,Starters menu,103.29,12
+Veg Burger,Burgers menu,86.29,17
+Chicken Burger,Burgers menu,115.23,10
+Hamburger,Burgers menu,102.96,10
+Farmhouse Pizza,Pizzas menu,107.82,25
+Mozzarella Pizza,Pizzas menu,118.5,25
+Tomato basil Pizza,Pizzas menu,102.02,33
+Pepperoni Pizza,Pizzas menu,97.36,35
+Mac-n-Cheese,Pastas menu,95.28,28
+Arrabbiata Pasta,Pastas menu,95.4,26
+Spaghetti,Pastas menu,71.33,29
+Pesto Pasta,Pastas menu,74.13,31
+Veg Sandwich ,Sandwiches menu and Rolls menu,117.28,8
+Chicken Sandwich,Sandwiches menu and Rolls menu,92.41,5
+Grilled Cheese Sandwich,Sandwiches menu and Rolls menu,105.55,9
+Tacos,Sandwiches menu and Rolls menu,85.76,11
+Burritos,Sandwiches menu and Rolls menu,78.54,8
+Coke,Beverages menu,55.35,10
+Iced Tea,Beverages menu,51.77,12
+Green Tea,Beverages menu,64.42,14
+Coffee,Beverages menu,64.86,10
+Oreo Shake,Milkshakes menu,54.96,13
+Strawberry Milkshake,Milkshakes menu,63.62,15
+Chocolate Milkshake,Milkshakes menu,64.98,11
+Avocado Milkshake,Milkshakes menu,54.4,10
+Apple Juice,Fruit Juices menu,39.52,13
+Mango Juice,Fruit Juices menu,30.22,14
+Orange Juice,Fruit Juices menu,30.59,15
+Lemonade,Fruit Juices menu,41.73,10
+Chocolate Cupcake,Desserts menu,59.74,20
+Sprinkle Donuts,Desserts menu,50.47,22
+Red velvet Cupcake,Desserts menu,64.24,23
+Blueberry Cheesecake,Desserts menu,46.12,16
+Strawberry Ice cream,Desserts menu,54.97,16
+Guacamole,Dips and Sauces menu,20.84,0
+Tomato ketchup,Dips and Sauces menu,18.59,0
+Mustard,Dips and Sauces menu,16.2,0
+Barbecue sauce,Dips and Sauces menu,18.82,0
+Mayonnaise,Dips and Sauces menu,12.46,0
+Cheesy dip,Dips and Sauces menu,12.52,0

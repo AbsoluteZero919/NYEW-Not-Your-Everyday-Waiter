@@ -30,7 +30,6 @@ except:
     docs_x = []
     docs_y = []
 
-    # Analize the tags, patterns and responses
     for intent in data["intents"]:
         for pattern in intent["patterns"]:
             wrds = nltk.word_tokenize(pattern)
@@ -55,15 +54,12 @@ except:
     # future data retrieval is optimised
     for x, doc in enumerate(docs_x):
         bag = []
-
         wrds = [stemmer.stem(w.lower()) for w in doc]
-
         for w in words:
             if w in wrds:
                 bag.append(1)
             else:
                 bag.append(0)
-
         output_row = out_empty[:]
         output_row[labels.index(docs_y[x])] = 1
 

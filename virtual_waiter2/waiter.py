@@ -29,7 +29,9 @@ from utilities.ordering_functions import place_order, show_menu, show_order, rem
 def chat():
     # Initiate the conversation with the assistant
     # print("Start talking with the bot (type quit to stop)!")
-    speak("\n\nStart talking with the bot (say checkout to stop)!")
+
+    speak("\nHi! I am your waiter, start talking with me (say checkout to stop)!")
+
 
     while True:
         inp = get_audio()
