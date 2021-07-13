@@ -2,10 +2,10 @@
 
 from queue import Queue, Empty
 from tkinter import PhotoImage, Tk, Text, END, Button, Frame, Label
-from utilities.Initialize_GUI import ProcessOutputReader, MyConsole
+from utilities.Initialize_GUI import ProcessOutputReader, MyConsole, ImageLabel
 from PIL import ImageTk, Image
 from sys import exit
-import ctypes
+import random
 
 '''
     Nyew: Not Your Everyday Waiter
@@ -33,8 +33,15 @@ root = Tk()
 root.title('NYEW - Waiter for your services')
 root.iconphoto(False, PhotoImage(file='./Images/waiter_icon_tkinter_png.png'))
 root.config(background='#adefd1')
-# label1 = Label(root, image=ImageTk.PhotoImage(file='./Images/waiter.png'))
-# label1.place(root)
+
+loading_screen_paths = ['./Images/waiterwaiter.gif', './Images/waiterwaiter2.gif', './Images/waiterwaiter3.gif']
+bg = PhotoImage(file='./Images/waiter.png')
+# bg_adj = bg.subsample(2, 1)
+bg_label = Label(root, image=bg)
+bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+menu_icon = PhotoImage(file='./Images/menu_icon.png')
+waiter_icon = PhotoImage(file='./Images/waiter_icon.png')
+exit_icon = PhotoImage(file='./Images/exit_icon.png')
 
 # create a queue for sending the lines from the process output reader thread
 # to the TkInter main thread
@@ -57,6 +64,13 @@ def restart():
         reader = ProcessOutputReader(line_queue, 'python -u waiter.py')
     # if not reader.is_alive():
     reader.start()   # start the process
+    
+    loading_screen = ImageLabel(console)
+    loading_screen.pack()
+    loading_screen.load(loading_screen_paths[random.randint(0, 2)])
+    # mytext.place(x=0, y=0, relwidth=1, relheight=1)
+    loading_screen.after(6000, loading_screen.killMyself)
+
     console.pack()   # make the console visible
     print('RESTARTING...\n')
     root.mainloop()  # run the TKinter main loop
@@ -169,6 +183,14 @@ def dip_menu():
     fries.pack()
 
 reader.start()   # start the process
+
+loading_screen = ImageLabel(console)
+loading_screen.pack()
+loading_screen.load(loading_screen_paths[random.randint(0, 2)])
+# mytext.place(x=0, y=0, relwidth=1, relheight=1)
+loading_screen.after(6000, loading_screen.killMyself)
+
+console.config(background='light yellow')
 console.pack()   # make the console visible
 
 class Pad(Frame):
@@ -181,16 +203,16 @@ class Pad(Frame):
         self.toolbar.pack(side="top", fill="x")
 
         # this will display the menu to the user
-        self.menu_btn = Button(self.toolbar, text="Menu", cursor='hand2', command=display_menu, bg='lawn green', foreground='black', font='Courier')
-        self.menu_btn.pack(side="left", ipadx='4')
+        self.menu_btn = Button(self.toolbar, text="Menu", cursor='hand2', image=menu_icon, compound='left', command=display_menu, bg='lawn green', foreground='black', font='Courier')
+        self.menu_btn.pack(side="left", ipadx='6')
 
         # this will quit the window and exit it
-        self.exit_btn = Button(self.toolbar, text="Exit", cursor='hand2', command=exit, bg='firebrick2', foreground='white', font='Courier')
-        self.exit_btn.pack(side='right', ipadx='4')
+        self.exit_btn = Button(self.toolbar, text="Exit", cursor='hand2', image=exit_icon, compound='left', command=exit, bg='firebrick2', foreground='white', font='Courier')
+        self.exit_btn.pack(side='right', ipadx='6')
 
         # this will restart the waiter in the window
-        self.restart_btn = Button(self.toolbar, text="Call Me Again", cursor='hand2', command=restart, bg='OliveDrab1', font='Courier')
-        self.restart_btn.pack(side="right")
+        self.restart_btn = Button(self.toolbar, text="Call Me Again", cursor='hand2', image=waiter_icon, compound='left', command=restart, bg='OliveDrab1', font='Courier')
+        self.restart_btn.pack(side="right", ipadx='2')
 
 Pad(root).pack(expand=1, fill='both')   # create toolbars in the frame
 

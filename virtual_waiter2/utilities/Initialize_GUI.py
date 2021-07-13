@@ -2,7 +2,9 @@
 from subprocess import Popen, PIPE, STDOUT, TimeoutExpired
 from threading import Thread, Event
 from queue import Queue, Empty
-from tkinter import PhotoImage, Tk, Text, END, Button, Frame
+from tkinter import PhotoImage, Tk, Text, END, Button, Frame, Label
+from PIL import ImageTk, Image
+from itertools import count, cycle
 
 class ProcessOutputReader(Thread):
 
@@ -55,14 +57,37 @@ class MyConsole(Text):
 
     def fetch_lines(self):
         something_inserted = False
-        subline = 0
 
         for _ in range(self.process_lines):
             try:
                 line = self.queue.get(block=False)
-                self.tag_config('background', background='light yellow', foreground='green4', font='Helvetica')
+                self.tag_config('background', background='light yellow', foreground='green4', font='Helvetica', selectbackground='green4', selectforeground='light yellow')
                 self.tag_add('background', '1.0', END)
-                self.tag_config('customer_word', background='cyan', foreground='red2', font='Helvetica')
+                self.tag_config('customer_word', background='cyan', foreground='red2', font='Helvetica', selectbackground='red2', selectforeground='cyan')
+
+                # def listening_waves(text_widget, keyword):
+                #     pos='1.0'
+                #     print('here')
+                #     while True:
+                #         idx = text_widget.search(keyword, pos, END)
+                #         if not idx:
+                #             print('here in')
+                #             break
+                #         pos = '{}+{}c'.format(idx, len(keyword)+13)
+                #         listener = ImageLabel(text_widget)
+                #         print('here out')
+                #         listener.load('./Images/waveform.gif')
+                #         print('here outer')
+                #         # listener.pack(side='bottom', fill='x')
+                #         listener.place(x=1, y=0)
+                #         print('here outest')
+                #         listener.after(5000, listener.killMyself)
+                #         print('should bye')
+                #         # busted_display = Label(text_widget, text="My Label Widget", font=("arial", "15"))
+                #         # busted_display.place(x=1, y=500)
+                #         # busted_display.after(5000, busted_display.destroy)
+                
+                # listening_waves(self, 'Listening to your order...')
 
                 def search(text_widget, keyword, tag):
                     pos = '1.0'
@@ -87,3 +112,45 @@ class MyConsole(Text):
             self.see(END)
 
         self.after(self.update_interval, self.fetch_lines)
+
+class ImageLabel(Label):
+    """
+    A Label that displays images, and plays them if they are gifs
+    :im: A PIL Image instance or a string filename
+    """
+    def load(self, im):
+        if isinstance(im, str):
+            im = Image.open(im)
+        frames = []
+ 
+        try:
+            for i in count(1):
+                frames.append(ImageTk.PhotoImage(im.copy()))
+                im.seek(i)
+        except EOFError:
+            pass
+        self.frames = cycle(frames)
+
+        # Setting the frame rate (speed of GIF)
+        # try:
+        #     self.delay = im.info['duration']
+        # except:
+        self.delay = 10
+ 
+        if len(frames) == 1:
+            self.config(image=next(self.frames))
+        else:
+            self.next_frame()
+ 
+    def unload(self):
+        self.config(image=None)
+        self.frames = None
+ 
+    def next_frame(self):
+        if self.frames:
+            self.config(image=next(self.frames))
+            self.after(self.delay, self.next_frame)
+    
+    # Destroy the loading screen after some time
+    def killMyself(self):
+        self.destroy()

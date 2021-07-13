@@ -1,3 +1,7 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+import logging
+logging.getLogger('tensorflow').setLevel(logging.FATAL)
 import nltk
 # run the following in terminal to remove the error
 # nltk.download('punkt')
@@ -8,6 +12,7 @@ stemmer = LancasterStemmer()
 import numpy
 import tflearn
 import tensorflow as tf
+tf.get_logger().setLevel(logging.ERROR)
 import pickle
 import json
 import collections

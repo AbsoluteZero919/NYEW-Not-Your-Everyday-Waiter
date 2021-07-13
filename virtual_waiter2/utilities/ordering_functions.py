@@ -48,7 +48,7 @@ def place_order():
         #     speak("Added " + item[0])
         #     recommend_item(item[0])
 
-            elif r.t == 'quit':
+            elif r.t == 'quit' or 'bill' in r.t:
                 show_order()
                 break
             elif r.t == 'negative':
