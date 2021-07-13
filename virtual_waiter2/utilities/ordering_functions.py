@@ -24,37 +24,42 @@ def place_order():
                 break
         # get keyword from the input sentence
         keyword = keyword_extract(inp)
-        # match the keyword with the existing menu list
-        item = match_menu(keyword, menu_items)
-        speak("Do you want me to add " + item[0] + " to your order ?")
-        inp_qu = get_audio()
-        r = map_input(inp_qu)
-        if r.res[r.res_ind] > 0.5:
-            if r.t == 'affirmative':
-                # There is a limit of 8 items because that's the maximum number of columns in recommendations_menu.csv
-                # the dataframe used in the apriori algorithm takes only 8 columns as input.
-                if len(order) < 8:
-                    order.append(item[0])
-                    speak("Added " + item[0])
-                    recommend_item(item[0])
-                else:
-                    speak("Sorry! Can't order more than eight items")
+
+        if keyword == '':
+            speak("I don't copy that! Please repeat")
+        else:
+            # match the keyword with the existing menu list
+            item = match_menu(keyword, menu_items)
+            speak("Do you want me to add " + item[0] + " to your order ?")
+            inp_qu = get_audio()
+            r = map_input(inp_qu)
+            if r.res[r.res_ind] > 0.5:
+                if r.t == 'affirmative':
+                    # There is a limit of 8 items because that's the maximum number of columns in recommendations_menu.csv
+                    # the dataframe used in the apriori algorithm takes only 8 columns as input.
+                    if len(order) < 8:
+                        order.append(item[0])
+                        speak("Added " + item[0])
+                        recommend_item(item[0])
+                    else:
+                        speak("Sorry! Can't order more than eight items")
+                        show_order()
+                        break
+            # if inp_qu.lower() == "yes":
+            #     order.append(item[0])
+            #     speak("Added " + item[0])
+            #     recommend_item(item[0])
+
+                elif r.t == 'quit':
                     show_order()
                     break
-        # if inp_qu.lower() == "yes":
-        #     order.append(item[0])
-        #     speak("Added " + item[0])
-        #     recommend_item(item[0])
-
-            elif r.t == 'quit':
-                show_order()
-                break
-            elif r.t == 'negative':
-                speak("Sorry! Did you mean " + listToString(item[0:3]))
+                elif r.t == 'negative':
+                    speak("Sorry! Did you mean " + listToString(item[0:3]))
+                else:
+                    speak("ha ? didn't get that, please repeat your order !")
             else:
-                speak("ha ? didn't get that, please repeat your order !")
-        else:
-            speak("I could not catch that, please repeat your order !")
+                speak("I could not catch that, please repeat your order !")
+
     return
 
 
@@ -67,7 +72,20 @@ def show_order():
         for o in order:
             total += float(df.loc[df['menu_items'] == o, 'prices'])
         speak("Your order is " + listToString(order) + " and the total amount would be " + str(round(total, 2)) + " Rupees")
+        total_time()
 
+def total_time():
+    totaltm = 0
+    for t in order:
+        totaltm += float(df.loc[df['menu_items'] == t, 'time'])
+    hr = int(totaltm/60)
+    mi = int(totaltm%60)
+    if hr == 0:
+        speak("Your order will be ready in " + str(mi) + " minutes")
+    elif mi == 0:
+        speak("Your order will be ready in " + str(hr) + " hours")
+    else:
+        speak("Your order will be ready in " + str(hr) + " hours " + str(mi) + " minutes")
 
 def remove_order(str_inp):
     # get keyword from the input sentence

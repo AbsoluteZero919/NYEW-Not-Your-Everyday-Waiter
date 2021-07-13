@@ -49,16 +49,10 @@ def speak(text):
 # For handling user voice requests
 def get_audio():
     r = sr.Recognizer()
-    # r.energy_threshold = 3000
     get_clean_audio()
     with sr.AudioFile('recording1.wav') as source:
-        # with sr.Microphone() as source:
         audio = r.listen(source)
-    # wavfile.write("wavfile.wav", data = audio)
-    # wavfile.write("wafreq.wav", rate = 44100, data = audio)
-
     said = ""
-
     try:
         said = r.recognize_google(audio, language='en-US')
         print(said)
