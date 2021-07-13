@@ -7,7 +7,7 @@ from gtts import gTTS
 import os
 import playsound
 
-
+# Handling background noise
 def get_clean_audio():
     # Sampling frequency
     freq = 44100
@@ -33,7 +33,7 @@ def get_clean_audio():
 
 # Convert text to speech
 # For the assistant to interact with user
-def speak(text):
+def speak(text, exit = False):
     tts = gTTS(text=text, lang='en', tld='co.in')
     print(text)
     filename = 'voice.mp3'
@@ -43,6 +43,9 @@ def speak(text):
     playsound.playsound(filename)
     if os.path.exists(filename):
         os.remove(filename)
+        if not exit:
+            print('Listening to your order...\n')
+            # print('\U0001F600 Listening to your order...')
 
 
 # Convert speech to text
@@ -54,8 +57,8 @@ def get_audio():
         audio = r.listen(source)
     said = ""
     try:
-        said = r.recognize_google(audio, language='en-US')
-        print(said)
+        said = r.recognize_google(audio, language = 'en-IN')
+        print("Customer said:", said, '\n')
     except Exception as e:
         print("Exception: " + str(e))
     return said

@@ -4,7 +4,10 @@ import pandas as pd
 
 def keyword_extract(text):
     # load english language model
+    # Before running this, make sure you have the required packages installed
     nlp = spacy.load('en_core_web_sm', disable=['ner', 'textcat'])
+    # If error: Can't find model 'en_core_web_sm', type the below command in terminal:
+    # python -m spacy download en_core_web_sm
 
     # text = "can i order veg sandwich?"
 

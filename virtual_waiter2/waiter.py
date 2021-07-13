@@ -29,7 +29,9 @@ from utilities.ordering_functions import place_order, show_menu, show_order, rem
 def chat():
     # Initiate the conversation with the assistant
     # print("Start talking with the bot (type quit to stop)!")
+
     speak("Hi! I am your waiter, start talking with me (say checkout to stop)!")
+
 
     while True:
         inp = get_audio()
@@ -37,7 +39,8 @@ def chat():
         # Quitting the assistant
         if inp.lower() == "checkout" or inp.lower() == "check out":
             append_recommend_menu('datasets/Recommendations_menu.csv', order)
-            speak("See you later then !")
+            speak("See you later then !", exit = True)
+            print('\nRETURNING TO THE REST ZONE...\n')
             exit()
 
         # Map input voice recognition to previous data items
@@ -51,30 +54,30 @@ def chat():
                     res = random.choice(responses)
                     speak(res)
                     place_order()
-                    speak("let me know if i can do anything else ?")
+                    speak("Let me know if I can do anything else ?")
                     break
                 elif r.t == 'menu':
                     show_menu(inp)
-                    speak("ready to order ? Tell me whenever you are ready !")
+                    speak("Ready to order ? Tell me whenever you are ready !")
                     break
                 elif r.t == 'showorder':
                     show_order()
-                    speak("wanna add more to your order ? Tell me whenever you are ready to order !")
+                    speak("Wanna add more to your order ? Tell me whenever you are ready to order !")
                     break
                 elif r.t == 'remove':
                     remove_order(inp)
-                    speak("let me know if i can do anything else ?")
+                    speak("Let me know if I can do anything else ?")
                     break
                 # Choose appropriate responses from dataset after mapping
                 elif r.t == tg['tag']:
                     responses = tg['responses']
                     res = random.choice(responses)
                     if res =="":
-                        speak("didn't get that can you rephrase that for me ?")
+                        speak("Didn't get that, can you rephrase that for me ?")
                     else:
                         speak(res)
         else:
-            speak("I don't understand, Please ask another question.")
+            speak("I don't understand, please ask another question.")
 
 
 chat()

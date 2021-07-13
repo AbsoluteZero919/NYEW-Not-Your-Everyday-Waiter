@@ -1,8 +1,7 @@
-from virtual_waiter2.utilities.model_handler import map_input
-from virtual_waiter2.utilities.keyword_extraction import keyword_extract, match_menu
-from virtual_waiter2.utilities.association_rule import apriori_algorithm
-from virtual_waiter2.utilities.convert_list_to_string import listToString
-from virtual_waiter2.utilities.audio_functions import get_audio, speak
+from utilities.model_handler import map_input
+from utilities.keyword_extraction import keyword_extract, match_menu
+from utilities.association_rule import apriori_algorithm
+from utilities.audio_functions import get_audio, speak
 import pandas as pd
 from csv import writer
 
@@ -11,6 +10,9 @@ dataset = pd.read_csv('datasets/nyew_menu.csv')
 df = dataset.iloc[:, :]
 menu_items = df['menu_items']
 
+# Converting list items to string for suggestion
+def listToString(lst):
+    return ', '.join(lst)
 
 def place_order():
     speak("Say I want to order, followed by the item, say quit when done!")
@@ -53,12 +55,14 @@ def place_order():
                 elif r.t == 'quit':
                     show_order()
                     break
+
                 elif r.t == 'negative':
                     speak("Sorry! Did you mean " + listToString(item[0:3]))
                 else:
                     speak("ha ? didn't get that, please repeat your order !")
             else:
                 speak("I could not catch that, please repeat your order !")
+
 
     return
 
@@ -106,9 +110,9 @@ def show_menu(str_inp):
     item = match_menu(keyword, df2)
     # get menu items from a specified sub menu
     a = df.loc[(df['sub_menu'] == item[0])]
-    speak(str(item[0]))
+    speak(str(item[0]), exit=True)
     for ind in a.index:
-        speak(str(df['menu_items'][ind]) + " costs " + str(df['prices'][ind]))
+        speak(str(df['menu_items'][ind]) + " costs " + str(df['prices'][ind]), exit=True)
 
 
 def recommend_item(order_item):
@@ -125,15 +129,16 @@ def recommend_item(order_item):
         return
     else:
         # speak("People who ordered " + order_item + " also ordered " + listToString(recommend_list))
-        speak(listToString(recommend_list) + " is popular choice with " + order_item)
+        speak(listToString(recommend_list) + " is popular choice with " + order_item, exit=True)
         speak("Please, Consider ordering it")
 
 
 # appends each order to the recommendation_menu
 def append_recommend_menu(file_name, list_of_elem):
     # Open file in append mode
-    with open(file_name, 'a+', newline='') as write_obj:
-        # Create a writer object from csv module
-        csv_writer = writer(write_obj)
-        # Add contents of list as last row in the csv file
-        csv_writer.writerow(list_of_elem)
+    if list_of_elem:
+        with open(file_name, 'a+', newline='') as write_obj:
+            # Create a writer object from csv module
+            csv_writer = writer(write_obj)
+            # Add contents of list as last row in the csv file
+            csv_writer.writerow(list_of_elem)

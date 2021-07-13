@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <button type="button" onclick="speakIntro()"></button>
+        <script>
+            function speakIntro()
+            {   
+                if (window.hasOwnProperty('speechSynthesis'))
+                {
+                    var msg = new SpeechSynthesisUtterance();
+                    msg.lang = 'en';
+                    msg.text = "one order of";
+                    window.speechSynthesis.speak(msg); 
+                    console.log("in");
+                } 
+                else
+                {
+                    alert("Sorry, your browser doesn't support text to speech!");
+                }
+    
+            }
+        </script>
+    </body>
+</html>

@@ -1,7 +1,7 @@
 {
   "intents":[
     {"tag": "order",
-    "patterns": ["ready to order", "i am ready to order", "can i order", "i want to place my order", "take my order", "would like to order"],
+    "patterns": ["ready to order", "i want to order", "i am ready to order", "can i order", "i want to place my order", "take my order", "would like to order"],
     "responses": ["I see you are ready to order"]
     },
     {"tag": "menu",
