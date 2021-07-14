@@ -29,8 +29,8 @@ from utilities.ordering_functions import place_order, show_menu, show_order, rem
 def chat():
     # Initiate the conversation with the assistant
     # print("Start talking with the bot (type quit to stop)!")
-
-    speak("\nHi! I am your waiter, start talking with me (say checkout to stop)!")
+    print('\n')
+    speak("Hi there! I am your waiter, start talking with me (say checkout to stop)!")
 
 
     while True:
@@ -52,7 +52,7 @@ def chat():
                 if r.t == 'order':
                     responses = tg['responses']
                     res = random.choice(responses)
-                    speak(res)
+                    speak(res, True)
                     place_order()
                     speak("Let me know if I can do anything else ?")
                     break

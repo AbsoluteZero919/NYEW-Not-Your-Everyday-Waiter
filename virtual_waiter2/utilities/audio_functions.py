@@ -35,7 +35,7 @@ def get_clean_audio():
 # For the assistant to interact with user
 def speak(text, exit = False):
     tts = gTTS(text=text, lang='en', tld='co.in')
-    print(text)
+    print('Waiter: ', text)
     filename = 'voice.mp3'
     # if os.path.exists(filename):
     #   os.remove(filename)
@@ -58,7 +58,7 @@ def get_audio():
     said = ""
     try:
         said = r.recognize_google(audio, language = 'en-IN')
-        print("Customer said:", said, '\n')
+        print("Customer said: ", said, '\n')
     except Exception as e:
         print("Exception: " + str(e))
     return said

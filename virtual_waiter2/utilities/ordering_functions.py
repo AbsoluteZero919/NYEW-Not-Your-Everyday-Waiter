@@ -21,7 +21,7 @@ def place_order():
         re = map_input(inp)
         # Quitting the assistant
         if re.res[re.res_ind] > 0.5:
-            if re.t == 'quit' or 'bill' in r.t:
+            if re.t == 'quit':
                 show_order()
                 break
         # get keyword from the input sentence
@@ -52,11 +52,11 @@ def place_order():
             #     speak("Added " + item[0])
             #     recommend_item(item[0])
 
-                elif r.t == 'quit' or 'bill' in r.t:
+                elif r.t == 'quit':
                     show_order()
                     break
                 elif r.t == 'negative':
-                    speak("Sorry! Did you mean " + listToString(item[0:3] + " ?"))
+                    speak("Sorry! Did you mean " + listToString(item[0:3]) + " ?")
                 else:
                     speak("Huh ? Didn't get that, please repeat your order !")
             else:
@@ -69,7 +69,7 @@ def place_order():
 def show_order():
     if not order:
         # speak("Wow ! such empty !")
-        speak("Your order list is empty !")
+        speak("Your order list is empty !", exit=True)
     else:
         total = 0
         for o in order:
@@ -84,11 +84,11 @@ def total_time():
     hr = int(totaltm/60)
     mi = int(totaltm%60)
     if hr == 0:
-        speak("Your order will be ready in " + str(mi) + " minutes")
+        speak("Your order will be ready in " + str(mi) + " minutes", exit=True)
     elif mi == 0:
-        speak("Your order will be ready in " + str(hr) + " hours")
+        speak("Your order will be ready in " + str(hr) + " hours", exit=True)
     else:
-        speak("Your order will be ready in " + str(hr) + " hours " + str(mi) + " minutes")
+        speak("Your order will be ready in " + str(hr) + " hours " + str(mi) + " minutes", exit=True)
 
 def remove_order(str_inp):
     # get keyword from the input sentence

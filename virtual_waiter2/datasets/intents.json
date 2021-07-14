@@ -36,12 +36,12 @@
     },
     {"tag": "quit",
     "patterns": ["that would be all", "that is all", "i am done", "quit", "stop", "terminate", "i am done ordering",
-                "i do not want to order anymore", "that is enough", "i won't consider", "i don't care", "i don't want to order"],
+                "i do not want to order anymore", "that is enough", "i won't consider", "i don't care", "i don't want to order", "bill please"],
     "responses": [""]
     },
     {"tag": "showorder",
     "patterns": ["show me my order", "show order list", "what items have i ordered", "can i see my order so far", "what are the dishes in my order",
-                "can i see my orders"
+                "can i see my orders", "show me my bill", "can i see my bill"
     ],
     "responses": [""]
     },

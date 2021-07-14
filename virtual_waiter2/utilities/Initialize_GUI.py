@@ -61,10 +61,12 @@ class MyConsole(Text):
         for _ in range(self.process_lines):
             try:
                 line = self.queue.get(block=False)
-                self.tag_config('background', background='light yellow', foreground='green4', font='Helvetica', selectbackground='green4', selectforeground='light yellow')
+                self.tag_config('background', background='light yellow', foreground='medium blue', font='Helvetica', selectbackground='medium blue', selectforeground='light yellow')
                 self.tag_add('background', '1.0', END)
+                self.tag_config('waiter_word', background='green3', foreground='white', font='Helvetica', selectbackground='white', selectforeground='green3')
                 self.tag_config('customer_word', background='cyan', foreground='red2', font='Helvetica', selectbackground='red2', selectforeground='cyan')
 
+                # display an audio waveform when the waiter is listening
                 # def listening_waves(text_widget, keyword):
                 #     pos='1.0'
                 #     print('here')
@@ -97,7 +99,8 @@ class MyConsole(Text):
                             break
                         pos = '{}+{}c'.format(idx, len(keyword))
                         text_widget.tag_add(tag, idx, pos)
-
+                
+                search(self, 'Waiter:', 'waiter_word')
                 search(self, 'Customer said:', 'customer_word')
             except Empty:
                 break
