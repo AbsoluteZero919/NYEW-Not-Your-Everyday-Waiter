@@ -18,7 +18,7 @@ First you need to create a folder named `builds` under the `virtual_waiter2` dir
 
 To run the application from user POV, we can train the model before running the UI. To do this run this command in the CLI:
 
-```bash
+```sh
 # Get into the utilities sub-directory in the virtual_waiter2 directory
 cd virtial_waiter2/utilities
 
@@ -37,6 +37,40 @@ To make the best of this project, make sure to go through the source codes in al
 
 For the Tkinter UI application, the backend is completely in the `virtual_waiter2` directory itself, whereas for the Django web application, the backend is distributed.
 
-To run and test the working of the backend,...
+### Building and Testing Units
+
+To build and re-train new models, delete the previous model's contents in the `builds` file, change the `run_id` parameter in the `model_handler.py` file, and re-run that file in CLI.
+
+```python
+# run_id parameter to be changed for each model training to get the learining graphs individually
+model.fit(training, output, n_epoch=400, batch_size=8, show_metric=True, snapshot_step=1, snapshot_epoch=True, run_id='Voice_Model_Run-2')
+model.save("builds/model.tflearn")
+```
+
+To run and test the working of the backend, we can run just the `waiter.py` in the `virtual_waiter2` directory, in the CLI:
+
+```sh
+python waiter.py
+```
+
+To look into the differences and learning graphs of the trained model with previously trained models, you need to be on the directory containing the `tflearn_logs`. You can use the following TensorBoard command:
+
+```sh
+# Get into the required directory
+cd virtial_waiter2
+
+# Start the TensorBoard for the model
+tensorboard --logdir='./tflearn_logs'
+```
+
+This will give a link: `http://localhost:6006/` which can be hit to get to the TensorBoard interface.
+
+### Django Web Application
+
+> The usage documentation regarding the Django web application will be updated once it is completed.
+
+### Tkinter UI and System Application
+
+
 
 ### To be continued 😉
