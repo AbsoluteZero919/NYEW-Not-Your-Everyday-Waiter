@@ -2,7 +2,7 @@
 
 This is a virtual waiter which aims to take on the responsibilities and functionality of a waiter in a restaurant, through the use of Machine Learning algorithms and models. The backend is developed using Python, Machine Learning and NLP libraries. As for the frontend, we have developed a UI using Tkinter, while also building a web application using Django (which is still ongoing). The application is quite easy to understand, setup and use. This project was developed as an attempt to address the problems of crowded restaurants without waiters, and botched orders because of the same, by providing a low-cost and easy management solution.
 
-We have also published a paper based on this project, titled '*A Novel Approach to Virtual Waiter for Restaurants*', in the proceedings of the *International Conference on "Global Convergence in Technology, Entrepreneurship, Computing and Value Engineering: Principles and Practices"* (ICGCP-2021), ISBN: 979-85-27243-61-1. A complete, detailed explanation about the project, its working, and future ideas can be found in our paper. To check it out, [click here](https://sapthagiri.edu.in/designs/naac/ICGCP/CSE_ISE.pdf) and go to paper 39.
+We have also published a paper based on this project, titled '*A Novel Approach to Virtual Waiter for Restaurants*', in the proceedings of the *International Conference on "Global Convergence in Technology, Entrepreneurship, Computing and Value Engineering: Principles and Practices"* (ICGCP-2021), ISBN: 979-85-27243-61-1. A complete, detailed explanation about the project, its working, and future ideas can be found in our paper. To check it out, [click here](https://sapthagiri.edu.in/designs/naac/ICGCP/CSE_ISE.pdf#page=203&zoom=auto,-98,843).
 
 ## Contents
 
